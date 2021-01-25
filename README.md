@@ -4,7 +4,7 @@ Authors:
 
 Mohammed Zweiri (2021), Ravindu Senaratne (2020) and Iftekher Mamun (2019)
 
-Keras script to classify space objects into: Space Debris, Rocket Body and Satellite using Convolutional Neural Networks VGG16. This includes a jupyter script to perform image augmentation
+Keras script to classify space objects into: Space Debris, Rocket Body and Satellite using Convolutional Neural Networks VGG16. This includes a Python script to perform image augmentation
 and extracting images from videos using MATLAB
 
 MIT License
