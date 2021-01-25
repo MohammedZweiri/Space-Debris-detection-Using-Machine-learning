@@ -42,7 +42,7 @@ batch_size = 50
 vgg16 = applications.VGG16(include_top = False, weights = 'imagenet')
 
 datagen = ImageDataGenerator(rescale = 1. /255)
-
+#Train data
 start = datetime.datetime.now()
 
 generator = datagen.flow_from_directory(
@@ -64,6 +64,7 @@ end = datetime.datetime.now()
 elapsed = end-start
 print('Time: ', elapsed)
 
+#Validation data
 start = datetime.datetime.now()
 
 generator = datagen.flow_from_directory(
@@ -85,6 +86,7 @@ end = datetime.datetime.now()
 elapsed = end-start
 print('Time: ', elapsed)
 
+#Test data
 start = datetime.datetime.now()
 
 generator = datagen.flow_from_directory(
@@ -106,6 +108,7 @@ end = datetime.datetime.now()
 elapsed = end-start
 print('Time: ', elapsed)
 
+#Train data
 generator_top = datagen.flow_from_directory(
    train_data_location,
    target_size = (img_width, img_height),
@@ -122,6 +125,7 @@ train_labels = generator_top.classes
 train_labels = to_categorical(train_labels,
                              num_classes = num_classes)
 
+#Validation data
 generator_top = datagen.flow_from_directory(
    validation_data_location,
    target_size = (img_width, img_height),
@@ -138,6 +142,7 @@ validation_labels = generator_top.classes
 validation_labels = to_categorical(validation_labels,
                              num_classes = num_classes)
 
+#Test data
 generator_top = datagen.flow_from_directory(
    test_data_location,
    target_size = (img_width, img_height),
@@ -154,6 +159,7 @@ test_labels = generator_top.classes
 test_labels = to_categorical(test_labels,
                              num_classes = num_classes)
 
+#CNN 
 start = datetime.datetime.now()
 model = Sequential()
 model.add(Flatten(input_shape = train_data.shape[1:]))
@@ -180,7 +186,9 @@ model.save_weights(top_model_weights_path)
 print("[INFO] accuracy: {:.2f}%".format(eval_accuracy * 100))
 end = datetime.datetime.now()
 elapsed = end - start
-print('Time: ', elapsed)
+print('Time: ', elapsed)]
+
+#Plotting the results
 
 acc = history.history['acc']
 val_acc = history.history['val_acc']
@@ -202,8 +210,10 @@ plt.xlabel('epoch')
 plt.legend()
 plt.show()
 
+#Determines Accuracy result
 model.evaluate(test_data, test_labels)
 
+#Determines Precision, Recall and F1-score results
 preds = np.round(model.predict(test_data),0)
 Space_objects = ['Rocket_Body', 'Satellite','Space_debris']
 classification_metrics = metrics.classification_report(test_labels, preds,target_names=Space_objects)
