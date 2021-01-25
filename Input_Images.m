@@ -1,8 +1,10 @@
+#Authors: Mohammed Zweiri (2020)
+
 close all
 clc
 
 
- filename = Space_debris_1;
+ filename = 'Your video name';
 
 [rows, cols, channels, samples] = size(filename);
 figure;
