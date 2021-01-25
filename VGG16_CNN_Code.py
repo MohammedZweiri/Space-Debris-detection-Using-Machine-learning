@@ -2,7 +2,7 @@
 """
 Created on Mon Jan 25 08:13:55 2021
 
-@author: Mohammed Zweiri (2021) and Mamun Iftekher (2019)
+@author: Mohammed Zweiri (2021) and Iftekher Mamun (2019)
 """
 
 
