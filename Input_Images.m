@@ -1,4 +1,5 @@
-#Authors: Mohammed Zweiri (2020)
+#Authors: Mohammed Zweiri (2020) 
+#Export the video before running
 
 close all
 clc
@@ -11,7 +12,7 @@ figure;
 for i = 1:samples
     str = sprintf('Sample: %d ', i);  
     imshow(filename(:,:,:,i))
-    imwrite(filename(:,:,:,i),['Space_debris_1_' num2str(i) '.jpg'] ,'jpg')
+    imwrite(filename(:,:,:,i),['Name the file' num2str(i) '.jpg'] ,'jpg')
     title(str);
     pause(0.1);
 end
