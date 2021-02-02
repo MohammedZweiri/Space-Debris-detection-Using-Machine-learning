@@ -159,7 +159,7 @@ test_labels = generator_top.classes
 test_labels = to_categorical(test_labels,
                              num_classes = num_classes)
 
-#CNN 
+#CNN, must be modified in terms of dropout, learning rate and number of hidden layers to whatever suitable for you
 start = datetime.datetime.now()
 model = Sequential()
 model.add(Flatten(input_shape = train_data.shape[1:]))
