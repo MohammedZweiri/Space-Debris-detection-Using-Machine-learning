@@ -12,8 +12,6 @@ import tensorflow
 import itertools
 import keras
 from sklearn import metrics
-from sklearn.metrics import confusion_matrix
-from sklearn.metrics import plot_confusion_matrix
 from keras.preprocessing.image import (ImageDataGenerator, img_to_array,
 load_img)
 from tensorflow.keras.models import Sequential
@@ -163,11 +161,7 @@ test_labels = to_categorical(test_labels,
 start = datetime.datetime.now()
 model = Sequential()
 model.add(Flatten(input_shape = train_data.shape[1:]))
-model.add(Dense(100, activation = tensorflow.keras.layers.LeakyReLU(alpha = 0.1)))
-model.add(Dropout(0.5))
-model.add(Dense(100, activation = tensorflow.keras.layers.LeakyReLU(alpha = 0.1)))
-model.add(Dropout(0.5))
-model.add(Dense(100, activation = tensorflow.keras.layers.LeakyReLU(alpha = 0.1)))
+model.add(Dense(100, activation = tensorflow.keras.layers.LeakyReLU(alpha = 0.3)))
 model.add(Dropout(0.5))
 model.add(Dense(num_classes, activation = 'softmax'))
 model.compile(loss='categorical_crossentropy', 
